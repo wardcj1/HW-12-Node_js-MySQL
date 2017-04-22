@@ -27,6 +27,23 @@ Node_js-MySQL bAmazon App
 
 #### Sample Code
 ```javascript
+var runSearch = function() {
+  inquirer.prompt({
+    name: "action",
+    type: "list",
+    message: "What would you like to do?",
+    choices: ["Enter the ID of the product to buy", "Select the number of units to buy"]
+  }).then(function(answer) {
 
+    switch (answer.action) {
+      case "Enter the ID of the product to buy":
+        productSearch();
+        break;
 
+      case "Select the number of units to buy":
+        unitSearch();
+        break;
+    }
+  });
+};
 ```
